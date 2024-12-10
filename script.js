@@ -17,8 +17,8 @@ const currentUser = [];
 // Пример данных о бронированиях (44 штук)
 const reservations = [
     { id: "943254", name: "Мария", email: "maria@example.com", date: "2024-12-25", time: "12:00", tableNumber: "5" },
-    { id: "948253", name: "Мария", email: "maria@example.com", date: "2024-12-25", time: "13:00", tableNumber: "5" },
-    { id: "943254", name: "Мария", email: "maria@example.com", date: "2024-12-25", time: "14:00", tableNumber: "5" },
+    { id: "948253", name: "Мария", email: "maria@example.com", date: "2024-12-21", time: "23:00", tableNumber: "2" },
+    { id: "567890", name: "Мария", email: "maria@example.com", date: "2024-12-30", time: "20:00", tableNumber: "1" },
     { id: "948232", name: "Мария", email: "maria@example.com", date: "2024-12-26", time: "13:00", tableNumber: "8" },  
 ];
 
@@ -611,7 +611,6 @@ function editReservation(reservationId) {
         document.getElementById('reservationModal').style.display = 'block';
 
         clearErrorMessages(); // Очищаем сообщения об ошибках
-        populateAvailableTimes(); // Заполняем доступные времена
     } else {
         console.error("Бронь не найдена:", reservationId);
     }
@@ -728,40 +727,6 @@ document.getElementById('reservationForm').onsubmit = function(event) {
    document.getElementById('reservationModal').style.display = 'none';
 };
 
-// Функция для заполнения доступных времён в зависимости от существующих броней
-function populateAvailableTimes() {
-   const reservationsData = JSON.parse(localStorage.getItem('reservations')) || [];
-    
-   const selectedDateInput = document.getElementById('reservationDate');
-    
-   if (selectedDateInput.value) {
-       const selectedDate = new Date(selectedDateInput.value);
-        
-       const takenTimes = reservationsData.filter(res => new Date(res.date).toDateString() === selectedDate.toDateString())
-                                       .map(res => res.time);
-
-       const timeSelect = document.getElementById('reservationTime');
-        
-       while (timeSelect.firstChild) { 
-           timeSelect.remove(0); 
-       }
-
-       for (let hour = 12; hour <= 23; hour++) {
-           const timeValue = `${hour.toString().padStart(2, '0')}:00`;
-           if (!takenTimes.includes(timeValue)) {
-               const option = new Option(timeValue, timeValue);
-               timeSelect.add(option);
-           }
-       }
-        
-       if (timeSelect.options.length === 0) {
-           alert("Нет доступных времён для выбранной даты.");
-           timeSelect.value = ''; // Сбрасываем выбор времени
-       }
-        
-       clearErrorMessages(); // Очищаем сообщения об ошибках при выборе новой даты
-   }
-}
 
 let reservationIdToDelete = null; // Переменная для хранения ID брони, которую нужно удалить
 
