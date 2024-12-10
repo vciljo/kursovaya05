@@ -156,9 +156,9 @@ document.getElementById("login__form").onsubmit = function(event) {
         modalBackground.style.display = "none";
         document.querySelector('header').style.display = 'none'; // Скрываем навигацию
         document.querySelector('main').style.display = 'none'; // Скрываем основной контент
-        if ( document.getElementById('loginError').textContent !== '') {
-            document.getElementById('loginError').textContent = '';
-        }
+        // if ( document.getElementById('loginError').textContent !== '') {
+        //     document.getElementById('loginError').textContent = '';
+        // }
         document.getElementById('loginEmail').classList.remove('error');
         document.getElementById('loginPassword').classList.remove('error');
         if (userFound.access === 'client') {
