@@ -156,6 +156,9 @@ document.getElementById("login__form").onsubmit = function(event) {
         modalBackground.style.display = "none";
         document.querySelector('header').style.display = 'none'; // Скрываем навигацию
         document.querySelector('main').style.display = 'none'; // Скрываем основной контент
+        document.getElementById('loginError').textContent = '';
+        document.getElementById('loginEmail').classList.remove('error');
+        document.getElementById('loginPassword').classList.remove('error');
         if (userFound.access === 'client') {
             document.querySelectorAll('.user').forEach(el => el.style.display = 'flex'); // Показываем элементы для клиента
             document.querySelectorAll('.admin').forEach(el => el.style.display = 'none'); // Скрываем элементы для администратора
@@ -166,9 +169,11 @@ document.getElementById("login__form").onsubmit = function(event) {
             document.querySelectorAll('.user').forEach(el => el.style.display = 'none'); // Скрываем элементы для клиента
             displayUserInfo(userFound);
         }
-        // Здесь можно перенаправить пользователя или выполнить другие действия
+
     } else {
-        alert('Неверный логин или пароль.');
+        document.getElementById('loginEmail').classList.add('error');
+        document.getElementById('loginPassword').classList.add('error');
+        document.getElementById('loginError').textContent = 'Неверный логин или пароль';
     }
 }
 
@@ -192,8 +197,13 @@ document.getElementById("registerForm").onsubmit = function(event) {
     const usersData = JSON.parse(localStorage.getItem('users')) || [];
     
     if (usersData.some(user => user.email === regEmail)) {
+        document.getElementById('regEmail').classList.add('error');
+        validForm = false;
         document.getElementById('emailError').textContent = 'Электронная почта уже используется.';
         validForm = false;
+    } else {
+        document.getElementById('regEmail').classList.remove('error');
+        document.getElementById('emailError').textContent = '';
     }
 
     // Проверка пароля
@@ -447,7 +457,6 @@ document.querySelectorAll('.booksBtn').forEach(el => el.onclick = function () {
             document.querySelectorAll('.admin').forEach(el => el.style.display = 'none'); // Скрываем элементы для администратора
             document.querySelector('.nav .user').style.display = 'flex'; // Показываем элементы для клиента
             document.querySelector('.user__table').style.display = 'flex';
-            document.querySelector('.infrastructure').style.display = 'none'
         } else {
             alert('Что-то пошло не так')
         }

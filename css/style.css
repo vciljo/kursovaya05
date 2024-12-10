@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'Andika';
+    src: url('/fonts/Andika/Andika-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+@font-face {
+    font-family: 'Andika';
+    src: url('/fonts/Andika/Andika-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orelega One';
+    src: url('/fonts/Orelega_One/OrelegaOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     background-color: #535353;
     font-family: 'Andika';
@@ -40,7 +64,7 @@ h2 {
     display: flex;
     flex-direction: column;
     height: 800px;
-    background-image: url(/img/background.png);
+    background-image: url("../img/background.png");
     background-size: cover;
 }
 
@@ -269,6 +293,7 @@ h2 {
 .login__btns {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 10px;
     width: 100%;
 }
@@ -327,6 +352,10 @@ input[disabled] {
     background-color: rgba(0, 0, 0, 0.1);
     color: rgb(173, 173, 173);
     cursor: not-allowed;
+}
+
+#loginError {
+    margin: 0 auto;
 }
 
 .error {
