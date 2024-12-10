@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kattie O'Shea's</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Orelega+One&display=swap" rel="stylesheet">
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/favicons1/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicons1/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicons1/favicon-16x16.png">
+    <link rel="manifest" href="icons/favicons1/site.webmanifest">
+    <link rel="mask-icon" href="icons/favicons1/safari-pinned-tab.svg" color="#8d6035">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Подключение скриптов -->
+    <script defer src='script.js'></script>
+
+</head>
+<body>
+    <header class="head__main main">
+        <nav class="navigation">
+            <a href="">
+                <img src="img/logo.svg" alt="Логотип Kattie O'Shea'S" class="logo">
+            </a>        
+            <ul class="nav-bar">
+                <li><button>Главная</button></li>
+                <li><button>Бронирования</button></li>
+                <li><button id="loginBtn">Войти</button></li> <!-- Изменено на кнопку -->
+            </ul>
+        </nav>
+        <div class="article_h1">
+            <h1>Kattie O'Shea's</h1>
+        </div>
+    </header>
+
+    <main class="main main">
+        <!-- Основной текст на главной странице -->
+        <div class="article_h2">
+            <h2>Katie O'Shea's</h2>
+        </div>
+        <p class="main__text">
+            Katie O'Shea's – ирландский паб на проспекте Мира, созданный и управляемый ирландцами. <br><br>
+            Кухня европейская. В меню есть традиционные ирландские завтраки, бизнес-ланчи, сэндвичи и бургеры, блюда на гриле, а также есть целый раздел азиатских блюд. <br><br>
+            В баре выбор внушительный. В основном, классика; ну и конечно огромный выбор пива, сидора и эля, плюс широкая линейка виски, и богатая винная карта. <br><br>
+            Уютно-веселая атмосфера. Иногда играет живая музыка, можно услышать и диджеев. На плазменных панелях показывают актуальные спортивные трансляции. <br><br>
+            Кэйти О’Шеа’с пользуется популярностью у иностранцев, в частности ирландцев живущих в Москве, тут часто можно услышать английскую речь. <br><br>
+            Каждую пятницу DJ сеты от резидентов Katie O’Shea’s.
+        </p>
+        <div class="main_img">
+            <img src="img/beer.svg" alt="Пиво" class="main_img__beer">
+        </div>
+
+    </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal__title">
+                <span class="close">&times;</span>
+                <h2 class="auth__title">Вход</h2>    
+            </div>
+            <form id="login__form">
+                <div>
+                    <label for="email">Логин (электронная почта):</label>
+                    <input type="email" id="loginEmail" name="email" required placeholder="Введите E-mail">
+                </div>
+                <div>
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="loginPassword" name="password" required placeholder="Введите пароль">
+                </div>
+                <div class="login__btns">
+                    <button type="button" id="registerBtn">Зарегистрироваться</button>
+                    <button type="submit">Войти</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+    
+    <!-- Модальное окно для регистрации -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content register">
+            <div class="modal__title">
+                <span class="close-register">&times;</span>
+                <h2 class="auth__title">Регистрация</h2>    
+            </div>
+            <form id="registerForm">
+                <div>
+                    <label for="regName">Имя:</label>
+                    <input type="text" id="regName" name="regName" required placeholder="Введите имя">
+                </div>
+                
+                <div>
+                    <label for="regEmail">Электроная почта:</label>
+                    <input type="email" id="regEmail" name="regEmail" required placeholder="Введите E-mail">
+                    <div id="emailError" class="error-message"></div>
+                </div>
+    
+                <div>
+                    <label for="regPassword">Пароль:</label>
+                    <input type="password" id="regPassword" name="regPassword" required placeholder="Введите пароль">
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+    
+                <div>
+                    <label for="regConfirmPassword">Повторите пароль:</label>
+                    <input type="password" id="regConfirmPassword" name="regConfirmPassword" required placeholder="Повторите пароль">
+                    <div id="confirmPasswordError" class="error-message"></div>
+                </div>
+    
+                <div class="login__btns">
+                    <button type="submit">Зарегистрироваться</button> 
+                </div> 
+            </form>
+        </div>
+    </div>
+    
+    <!-- Фон модального окна -->
+    <div id='modalBackground' class='modal-background'></div>
+
+    
+
+    <!-- Административная часть -->
+    <nav class="nav admin">
+        <div class="profile">
+            <img src="img/profile.svg" alt="Профиль">
+            <span>
+                <p class="name__admin">Фамилия И. О.</p>
+                <p class="id__admin">id: <span id="id__admin">123456</span></p>  
+            </span>
+        </div>
+        <div class="nav-bar admin">
+            <ul class="nav-bar">
+                <li><button class="booksBtn">Бронирования</button></li>
+                <li><button class="exit"><img src="img/exit.svg" alt="Выйти"></button></li> 
+            </ul>
+        </div>
+    </nav>
+
+    <section class="admin__table admin">
+        <div class="filter">
+            <!-- Фильтрация по дате -->
+            <div class="admin_filters">
+               <div class="date-filter">
+                    <label for="dateInput">Поиск по дате:</label>
+                    <input type="date" id="dateInputAdmin" onchange="filterTable()">
+                </div>
+
+                <div class="date-filter">
+                    <label for="dateInput">Поиск по времени:</label>
+                    <input type="time" id="timeInputAdmin" onchange="filterTable()" step="3600">
+                </div>
+            </div>
+            
+            <!-- Фильтрация по имени -->
+            <input type="text" id="filterSearch" placeholder="Поиск по имени" onkeyup="filterTable()">
+        </div>
+                
+        <!-- Таблица с бронями для администраторов -->
+        <div class="drop-shadow">
+            <table id="reservationsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Email</th>
+                        <th onclick="sortTable(3)">Дата &#x25B2;&#x25BC;</th> <!-- Сортировка по дате -->
+                        <th onclick="sortTable(4)">Время &#x25B2;&#x25BC;</th> <!-- Сортировка по времени -->
+                        <th>№ ст.</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody> <!-- Тело таблицы будет заполняться динамически -->
+            </table>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+                <span class="pages">1/1</span> <!-- Здесь можно обновлять количество страниц -->
+                <div class="pagination_buttons">
+                    <!-- Пагинация может быть реализована с помощью кнопок -->
+                    <button class="button left-button" onclick="changePage(-1)"><img src="img/left.svg" alt="Назад"></button>
+                    <button class="button right-button" onclick="changePage(1)"><img src="img/right.svg" alt="Вперед"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопка для добавления брони -->
+        <button type="submit" class="add">Добавить бронь</button>
+
+    </section>
+
+
+    <!-- Клиентская часть -->
+    <!-- Навигация -->
+    <nav class="nav user">
+        <div class="profile">
+            <img src="img/profile.svg" alt="Профиль">
+            <span>
+                <p class="name__user">Имя</p>
+                <p class="id__user">id: <span id="id__user">103890</span></p>  
+            </span>
+        </div>
+        <div class="nav-bar user">
+            <ul class="nav-bar">
+                <li><button class="booksBtn">Бронирования</button></li>
+                <li><button class="exit"><img src="img/exit.svg" alt="Выйти"></button></li> 
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Мои бронирования -->
+    <section class="user__table user">
+        <div class="filter">
+            <!-- Фильтрация по дате -->
+            <div class="admin_filters">
+               <div class="date-filter">
+                    <label for="dateInput">Поиск по дате:</label>
+                    <input type="date" id="dateInputUser" onchange="filterTable()">
+                </div>
+
+                <div class="date-filter">
+                    <label for="dateInput">Поиск по времени:</label>
+                    <input type="time" id="timeInputUser" onchange="filterTable()" step="3600">
+                </div>
+            </div>
+        </div>
+                
+        <!-- Таблица с бронями для администраторов -->
+        <div class="drop-shadow">
+            <table id="reservationsTableUser">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th onclick="sortTable(1)">Дата &#x25B2;&#x25BC;</th> <!-- Сортировка по дате -->
+                        <th onclick="sortTable(2)">Время &#x25B2;&#x25BC;</th> <!-- Сортировка по времени -->
+                        <th>№ ст.</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody> <!-- Тело таблицы будет заполняться динамически -->
+            </table>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+                <span class="pages">1/1</span> <!-- Здесь можно обновлять количество страниц -->
+                <div class="pagination_buttons">
+                    <!-- Пагинация может быть реализована с помощью кнопок -->
+                    <button class="button left-button" onclick="changePage(-1)"><img src="img/left.svg" alt="Назад"></button>
+                    <button class="button right-button" onclick="changePage(1)"><img src="img/right.svg" alt="Вперед"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Кнопка для добавления брони -->
+        <button type="submit" class="add">Добавить бронь</button>
+    </section>
+
+    <!-- Модальное окно для успешного бронирования -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal__title">
+                <span class="close" onclick="closeSuccessModal()">&times;</span>
+                <h2 class="auth__title">Успех!</h2>
+            </div>
+            <div>
+                <p>Вход выполнен успешно</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для подтверждения удаления -->
+    <div id="deleteConfirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal__title">
+                <span class="close" onclick="closeDeleteConfirmation()">&times;</span>
+                <h2 class="auth__title">Подтверждение удаления</h2>
+            </div>
+            <div>
+                <p>Вы уверены, что хотите удалить данную бронь?</p>
+            </div>
+            <div class="login__btns">
+                <button type="button" onclick="closeDeleteConfirmation()">Отмена</button>
+                <button id="confirmDeleteButton" type="submit">Да, удалить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления/редактирования брони -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal__title">
+                <span class="close-reservation">&times;</span>
+                <h2 class="auth__title" id="title-modal-admin">Создание брони</h2>    
+            </div>
+            <form id="reservationForm">
+                <input type="hidden" id="reservationId"> <!-- Скрытое поле для ID брони -->
+                <div>
+                    <label for="reservationName">Имя:</label>
+                    <input type="text" id="reservationName" required placeholder="Введите имя">
+                </div>
+                <div>
+                    <label for="reservationEmail">Email:</label>
+                    <input type="email" id="reservationEmail" required placeholder="Введите Email">
+                </div>
+                <div>
+                    <label for="reservationDate">Дата:</label>
+                    <input type="date" id="reservationDate" required min="today" max="today+1 month">
+                </div>
+                <div>
+                    <label for="reservationTime">Время:</label>
+                    <input type="time" id="reservationTime" required step="3600"> 
+                </div>
+                <div>
+                    <label for="tableNumber">Номер столика:</label>
+                    <input type="number" id="tableNumber" required placeholder="1-8">
+                </div>
+                <div class="login__btns">
+                    <button type="submit" id="reservation-btn-admin">Добавить бронь</button> 
+                </div> 
+            </form>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <a href="">
+            <img src="img/logo.svg" alt="Логотип Kattie O'Shea'S" class="logo">
+        </a>
+        <div class="social_media">
+            <img src="img/vk.svg" alt="ВКонтакте">
+            <img src="img/telegram.svg" alt="Telegram">
+            <img src="img/whatsApp.svg" alt="WhatsApp">
+        </div> 
+    </footer>
+</body>
+</html>
