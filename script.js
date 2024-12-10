@@ -555,7 +555,6 @@ document.querySelectorAll(".add").forEach(el => el.onclick = function () {
         document.getElementById('reservation-btn-admin').textContent = 'Добавить бронь';
 
         clearErrorMessages(); // Очищаем сообщения об ошибках
-        populateAvailableTimes(); // Заполняем доступные времена
     } else if (currUser.access === "client") {
         document.getElementById('reservationModal').style.display = 'block'; // Показываем модальное окно
         document.getElementById('reservationForm').reset(); // Сбрасываем форму
@@ -576,7 +575,6 @@ document.querySelectorAll(".add").forEach(el => el.onclick = function () {
         document.getElementById('reservation-btn-admin').textContent = 'Добавить бронь';
 
         clearErrorMessages(); // Очищаем сообщения об ошибках
-        populateAvailableTimes(); // Заполняем доступные времена
     } else {
         alert('Что-то не так')
     }
