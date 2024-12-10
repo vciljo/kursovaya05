@@ -189,10 +189,15 @@ document.getElementById("registerForm").onsubmit = function(event) {
     const regConfirmPassword = document.getElementById('regConfirmPassword').value;
 
     // Сброс ошибок
-    document.getElementById('emailError').textContent = '';
-    document.getElementById('passwordError').textContent = '';
-    document.getElementById('confirmPasswordError').textContent = '';
-
+    if (document.getElementById('emailError').textContent !== '') {
+        document.getElementById('emailError').textContent = '';
+    }
+    if (document.getElementById('passwordError').textContent !== '') {
+        document.getElementById('passwordError').textContent = '';
+    }
+    if (document.getElementById('confirmPasswordError').textContent !== '') {
+        document.getElementById('confirmPasswordError').textContent = '';
+    }
     let validForm = true;
 
     // Проверка электронной почты на уникальность
@@ -205,7 +210,9 @@ document.getElementById("registerForm").onsubmit = function(event) {
         validForm = false;
     } else {
         document.getElementById('regEmail').classList.remove('error');
-        document.getElementById('emailError').textContent = '';
+        if (document.getElementById('emailError').textContent !== '') {
+            document.getElementById('emailError').textContent = '';
+        }
     }
 
     // Проверка пароля
