@@ -156,9 +156,9 @@ document.getElementById("login__form").onsubmit = function(event) {
         modalBackground.style.display = "none";
         document.querySelector('header').style.display = 'none'; // Скрываем навигацию
         document.querySelector('main').style.display = 'none'; // Скрываем основной контент
-        // if ( document.getElementById('loginError').textContent !== '') {
-        //     document.getElementById('loginError').textContent = '';
-        // }
+        if ( document.getElementById('loginError').textContent !== null) {
+            document.getElementById('loginError').textContent = '';
+        }
         document.getElementById('loginEmail').classList.remove('error');
         document.getElementById('loginPassword').classList.remove('error');
         if (userFound.access === 'client') {
@@ -189,13 +189,13 @@ document.getElementById("registerForm").onsubmit = function(event) {
     const regConfirmPassword = document.getElementById('regConfirmPassword').value;
 
     // Сброс ошибок
-    if (document.getElementById('emailError').textContent !== '') {
+    if (document.getElementById('emailError').textContent !== null) {
         document.getElementById('emailError').textContent = '';
     }
-    if (document.getElementById('passwordError').textContent !== '') {
+    if (document.getElementById('passwordError').textContent !== null) {
         document.getElementById('passwordError').textContent = '';
     }
-    if (document.getElementById('confirmPasswordError').textContent !== '') {
+    if (document.getElementById('confirmPasswordError').textContent !== null) {
         document.getElementById('confirmPasswordError').textContent = '';
     }
     let validForm = true;
@@ -210,7 +210,7 @@ document.getElementById("registerForm").onsubmit = function(event) {
         validForm = false;
     } else {
         document.getElementById('regEmail').classList.remove('error');
-        if (document.getElementById('emailError').textContent !== '') {
+        if (document.getElementById('emailError').textContent !== null) {
             document.getElementById('emailError').textContent = '';
         }
     }
@@ -308,8 +308,6 @@ function filterTable() {
         const timeInputValue = document.getElementById("timeInputUser").value;
         
         let filteredReservations = JSON.parse(localStorage.getItem('reservations')).filter(reservation => reservation.email === currUser.email) || [];
-
-        console.log(filteredReservations);
         
         if (dateInputValue) {
             filteredReservations = filteredReservations.filter(reservation => reservation.date === dateInputValue);
